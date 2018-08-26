@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #efefef;
+}
+
+app-welcome {
+  margin-top: 5%;
+}
 li {
   font-size: large;
 }
 
-div.panel-heading {
+div.card-header {
   font-size: x-large;
 }
 
