@@ -16,6 +16,13 @@
 *.launch
 .settings/
 *.sublime-workspace
+.idea/*
+.idea/misc.xml
+.idea/modules.xml
+.idea/pluralsight-angular-routing.iml
+.idea/vcs.xml
+.idea/workspace.xml
+
 
 # IDE - VSCode
 .vscode/*
