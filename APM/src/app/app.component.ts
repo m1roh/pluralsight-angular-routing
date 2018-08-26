@@ -9,7 +9,7 @@ import { AuthService } from './user/auth.service';
 export class AppComponent {
   pageTitle: string = 'Acme Product Management';
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   logOut(): void {
     this.authService.logout();
