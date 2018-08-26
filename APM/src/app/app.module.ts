@@ -23,8 +23,8 @@ import { PageNotFoundComponent } from "./page-not-found.component";
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
-    ProductModule,
     MessageModule,
+    ProductModule,
     UserModule
   ],
   providers: [],
