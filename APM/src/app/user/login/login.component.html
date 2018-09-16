@@ -2,13 +2,13 @@
   <div class="panel-heading">
     {{pageTitle}}
   </div>
-  
+
   <div class="panel-body">
     <form class="form-horizontal"
           novalidate
           (ngSubmit)="login(loginForm)"
           #loginForm="ngForm"
-          autocomplete="off" >
+          autocomplete="off">
       <fieldset>
         <div class="form-group"
              [ngClass]="{'has-error': (userNameVar.touched ||
@@ -16,16 +16,16 @@
                                                !userNameVar.valid }">
           <label class="col-md-2 control-label"
                  for="userNameId">User Name</label>
-          
+
           <div class="col-md-8">
             <input class="form-control"
                    id="userNameId"
                    type="text"
                    placeholder="User Name (required)"
                    required
-                   (ngModel) = "userName"
+                   [(ngModel)]="userName"
                    name="userName"
-                   #userNameVar="ngModel" />
+                   #userNameVar="ngModel"/>
             <span class="help-block" *ngIf="(userNameVar.touched ||
                                                          userNameVar.dirty) &&
                                                          userNameVar.errors">
@@ -35,22 +35,22 @@
                         </span>
           </div>
         </div>
-        
+
         <div class="form-group"
              [ngClass]="{'has-error': (passwordVar.touched ||
                                                passwordVar.dirty) &&
                                                !passwordVar.valid }">
           <label class="col-md-2 control-label" for="passwordId">Password</label>
-          
+
           <div class="col-md-8">
             <input class="form-control"
                    id="passwordId"
                    type="password"
                    placeholder="Password (required)"
                    required
-                   (ngModel) = "password"
+                   [(ngModel)]="password"
                    name="password"
-                   #passwordVar="ngModel" />
+                   #passwordVar="ngModel"/>
             <span class="help-block" *ngIf="(passwordVar.touched ||
                                                          passwordVar.dirty) &&
                                                          passwordVar.errors">
@@ -60,7 +60,7 @@
                         </span>
           </div>
         </div>
-        
+
         <div class="form-group">
           <div class="col-md-4 col-md-offset-2">
                         <span>
@@ -72,7 +72,7 @@
                             </button>
                         </span>
             <span>
-                            <a class="btn btn-default">
+                            <a class="btn btn-default" [routerLink]="['/welcome']">
                                 Cancel
                             </a>
                         </span>
