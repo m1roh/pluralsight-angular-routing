@@ -1,4 +1,4 @@
-import { InMemoryDbService, InMemoryBackendConfig } from 'angular-in-memory-web-api';
+import { InMemoryBackendConfig, InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { IProduct } from './product';
 

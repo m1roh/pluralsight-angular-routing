@@ -1,11 +1,10 @@
-import { Component, OnChanges, Input,
-  Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
-             selector: 'ai-star',
-             templateUrl: './star.component.html',
-             styleUrls: ['./star.component.scss']
-           })
+  selector: 'ai-star',
+  templateUrl: './star.component.html',
+  styleUrls: ['./star.component.scss']
+})
 export class StarComponent implements OnChanges {
   @Input() rating: number;
   starWidth: number;

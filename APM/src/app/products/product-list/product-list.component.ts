@@ -4,8 +4,8 @@ import { IProduct } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
-   templateUrl: './product-list.component.html',
-   styleUrls: [ './product-list.component.scss' ]
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
@@ -25,8 +25,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('init');
     this.productService.getProducts()
-        .subscribe(products => this.products = products,
-                   error => this.errorMessage = <any>error);
+      .subscribe(products => this.products = products,
+        error => this.errorMessage = <any>error);
   }
 }

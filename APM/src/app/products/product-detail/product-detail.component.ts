@@ -13,7 +13,8 @@ export class ProductDetailComponent implements OnInit {
   product: IProduct;
   errorMessage: string;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit() {
   }
