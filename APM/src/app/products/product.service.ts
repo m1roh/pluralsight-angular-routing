@@ -25,7 +25,7 @@ export class ProductService {
     if (id === 0) {
       return of(this.initializeProduct());
     }
-    ;
+
     const url = `${this.baseUrl}/${id}`;
     return this.http.get(url)
       .pipe(
