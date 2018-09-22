@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'welcome',
+    pathMatch: 'full'
+  },
   {
     path: 'welcome',
     loadChildren: './home/welcome/welcome.module#WelcomeModule'
@@ -16,7 +20,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './user/user.module#UserModule'
   },
-  { path: '**', component: PageNotFoundComponent },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
 ];
 
 @NgModule({
