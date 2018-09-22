@@ -2,7 +2,7 @@
   <div class="panel-heading" style="font-size:large">
     {{pageTitle + ": " + product.productName}}
   </div>
-  
+
   <div class="panel-body">
     <div class="row">
       <div class="col-md-6">
@@ -42,7 +42,7 @@
           <div class="col-md-6">{{product.tags}}</div>
         </div>
       </div>
-      
+
       <div class="col-md-6" *ngIf="product.imageUrl">
         <img class="center-block img-responsive"
              [style.width.px]="200"
@@ -53,9 +53,11 @@
     </div>
     <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
   </div>
-  
+
   <div class="panel-footer">
-    <a class="btn btn-default">
+    <a class="btn btn-default"
+       [routerLink]="['/products']"
+       [preserveQueryParams]="true">
       <i class="glyphicon glyphicon-chevron-left"></i> Back
     </a>
     <a class="btn btn-primary" style="width:80px;margin-left:10px">

@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
 
-import { SharedModule } from '../shared/shared.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
-            imports: [
-              SharedModule
-            ],
-            declarations: [
-              LoginComponent
-            ],
-            providers: [
-              AuthService
-            ]
-          })
-export class UserModule { }
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    FormsModule,
+  ],
+  declarations: [
+    LoginComponent
+  ],
+  providers: [
+    CommonModule
+  ],
+  exports: [
+  ]
+})
+export class UserModule {
+}

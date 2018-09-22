@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { MessageService } from "../message.service";
+import { Router } from '@angular/router';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-message',
@@ -10,7 +10,8 @@ import { MessageService } from "../message.service";
 export class MessageComponent implements OnInit {
 
   constructor(private messageService: MessageService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
   }

@@ -8,19 +8,30 @@ import { ProductFilterPipe } from './product-filter-pipe';
 import { ProductService } from './product.service';
 
 import { SharedModule } from '../shared/shared.module';
+import { ProductsRoutingModule } from './products-routing.module';
+import { ProductResolverService } from './product-resolver.service';
+import { ProductListResolverService } from './product-list-resolver.service';
+import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
 
 @NgModule({
-            imports: [
-              SharedModule
-            ],
-            declarations: [
-              ProductListComponent,
-              ProductDetailComponent,
-              ProductEditComponent,
-              ProductFilterPipe
-            ],
-            providers: [
-              ProductService
-            ]
-          })
-export class ProductModule {}
+  imports: [
+    ProductsRoutingModule,
+    SharedModule
+  ],
+  declarations: [
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent,
+    ProductFilterPipe
+  ],
+  providers: [
+    ProductListResolverService,
+    ProductResolverService,
+    ProductService
+  ],
+})
+export class ProductModule {
+}

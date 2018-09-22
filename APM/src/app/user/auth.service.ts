@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 
 import { IUser } from './user';
 import { MessageService } from '../messages/message.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  currentUser: IUser;
+  private _authMannager: BehaviorSubject<AuthState> = new BehaviorSubject<AuthState>(AuthState.LoggedOut);
+  private _authState: AuthState;
+  public authChange: Observable<AuthState>;
+  public currentUser: IUser;
 
-  constructor(private messageService: MessageService) { }
-
-  isLoggedIn(): boolean {
-    return !!this.currentUser;
+  constructor(private messageService: MessageService) {
+    this.authChange = this._authMannager.asObservable();
   }
 
-  login(userName: string, password: string): void {
+  public login(userName: string, password: string): void {
     if (!userName || !password) {
       this.messageService.addMessage('Please enter your userName and password');
       return;
@@ -24,18 +26,33 @@ export class AuthService {
         userName: userName,
         isAdmin: true
       };
-      this.messageService.addMessage('Admin login');
-      return;
+      // this.messageService.addMessage('Admin login');
+      this._setAuthState(AuthState.LoggedIn);
     }
     this.currentUser = {
       id: 2,
       userName: userName,
       isAdmin: false
     };
-    this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
+    // this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
+    this._setAuthState(AuthState.LoggedIn);
   }
 
-  logout(): void {
-    this.currentUser = null;
+  public logout(): void {
+    this._setAuthState(AuthState.LoggedOut);
   }
+
+  public emitAuthState(): void {
+    this._authMannager.next(this._authState);
+  }
+
+  private _setAuthState(newAutState: AuthState): void {
+    this._authState = newAutState;
+    this.emitAuthState();
+  }
+}
+
+export const enum AuthState {
+  LoggedIn,
+  LoggedOut
 }

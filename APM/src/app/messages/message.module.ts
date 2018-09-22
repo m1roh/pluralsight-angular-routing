@@ -6,14 +6,15 @@ import { MessageComponent } from './message/message.component';
 import { MessageService } from './message.service';
 
 @NgModule({
-            imports: [
-              SharedModule
-            ],
-            declarations: [
-              MessageComponent
-            ],
-            providers: [
-              MessageService
-            ]
-          })
-export class MessageModule { }
+  imports: [
+    SharedModule
+  ],
+  declarations: [
+    MessageComponent
+  ],
+  providers: [
+    MessageService
+  ]
+})
+export class MessageModule {
+}
