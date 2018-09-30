@@ -7,8 +7,8 @@
                 </a>
             </span>
 </div>
-<div *ngFor="let message of messageService.messages; let i=index">
-  <div *ngIf="i<10" class="message-row">
+<div *ngFor="let message of messages">
+  <div *ngIf="messages" class="message-row">
     {{ message }}
   </div>
 </div>

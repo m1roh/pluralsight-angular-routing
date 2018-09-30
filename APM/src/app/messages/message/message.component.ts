@@ -8,15 +8,23 @@ import { MessageService } from '../message.service';
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
+  public messages: string[];
 
-  constructor(private messageService: MessageService,
+  constructor(public messageService: MessageService,
               private router: Router) {
   }
 
   ngOnInit() {
+    this.messageService.getMessages().subscribe(
+      (messages) => {
+        this.messages = messages;
+      }
+    );
   }
 
   close(): void {
     // Close the popup.
+    this.router.navigate([{ outlets: { popup: null } }]);
+    this.messageService.isDisplayed = false;
   }
 }
