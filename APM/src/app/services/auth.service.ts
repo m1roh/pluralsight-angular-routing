@@ -12,10 +12,15 @@ export class AuthService {
   public authChange: Observable<AuthState>;
   public userChange: Observable<IUser>;
   public currentUser: IUser;
+  public redirectUrl: string;
 
   constructor(private messageService: MessageService) {
     this.authChange = this.authManager_.asObservable();
     this.userChange = this.userManager_.asObservable();
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.currentUser;
   }
 
   login(userName, password):void {

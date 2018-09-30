@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MessageModule } from './messages/message.module';
 import { ProductModule } from './products/product.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     ProductModule,
     UserModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
