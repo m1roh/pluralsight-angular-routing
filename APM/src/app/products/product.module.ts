@@ -13,6 +13,7 @@ import { ProductResolverService } from './product-resolver.service';
 import { ProductListResolverService } from './product-list-resolver.service';
 import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
+import { ProductGuardService } from './product-guard.service';
 
 @NgModule({
   imports: [
@@ -28,9 +29,10 @@ import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.
     ProductFilterPipe
   ],
   providers: [
+    ProductGuardService,
     ProductListResolverService,
     ProductResolverService,
-    ProductService
+    ProductService,
   ],
 })
 export class ProductModule {
