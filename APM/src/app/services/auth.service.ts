@@ -29,7 +29,7 @@ export class AuthService {
         userName: userName,
         isAdmin: true
       };
-      // this.messageService.addMessage('Admin login');
+      this.messageService.addMessage('Admin login');
       this.setAuthState_(AuthState.LoggedIn, this.currentUser);
     }
     this.currentUser = {
@@ -37,7 +37,7 @@ export class AuthService {
       userName: userName,
       isAdmin: false
     };
-    // this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
+    this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
     this.setAuthState_(AuthState.LoggedIn, this.currentUser);
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, AuthState } from './services/auth.service';
 import { IUser } from './user/user';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { MessageService } from './messages/message.service';
 
 @Component({
   selector: 'app-component',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   public loading = true;
 
   constructor(private authService_: AuthService,
+              public messageService: MessageService,
               private route: Router) {
   }
 
@@ -42,6 +44,16 @@ export class AppComponent implements OnInit {
       routerEvent instanceof NavigationEnd) {
       this.loading = false;
     }
+  }
+
+  displayMessages(): void {
+    this.route.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.messageService.isDisplayed = true;
+  }
+
+  hideMessages(): void {
+    this.route.navigate([{ outlets: { popup: null } }]);
+    this.messageService.isDisplayed = false;
   }
 
   logout(): void {
